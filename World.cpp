@@ -34,7 +34,11 @@ UWorld::UWorld()
 UWorld::UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int InSlimeCounts)
 	: PlayerCounts(InPlayerCounts), WildBoarCounts(InWildBoarCounts), GoblinCounts(InGoblinCounts), SlimeCounts(InSlimeCounts), ActorCounts(WildBoarCounts + GoblinCounts + SlimeCounts)
 {
-	Actors = new AActor * [ActorCounts];
+	if (ActorCounts > 0)
+	{
+		Actors = new AActor* [ActorCounts];
+	}
+
 	for (int i = 0; i < PlayerCounts; ++i)
 	{
 		Actors[i] = new APlayer();
@@ -71,11 +75,14 @@ void UWorld::Render()
 
 UWorld::~UWorld()
 {
-	for (int i = 0; i < ActorCounts; ++i)
+	if (Actors)
 	{
-		delete Actors[i];
-		Actors[i] = nullptr;
+		for (int i = 0; i < ActorCounts; ++i)
+		{
+			delete Actors[i];
+			Actors[i] = nullptr;
+		}
+		delete[] Actors;
+		Actors = nullptr;
 	}
-	delete[] Actors;
-	Actors = nullptr;
 }
