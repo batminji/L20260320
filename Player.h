@@ -7,9 +7,12 @@ public:
 	void Move();
 	void Attack();
 	void Damaged();
-	void GetGold();
+	void CollectGold(int Gold);
+	int GetGold();
+	void SetGold(int Gold);
 	~APlayer();
 
+protected:
 	int Gold;
 };
 

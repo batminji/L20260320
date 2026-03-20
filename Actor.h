@@ -18,8 +18,19 @@ public:
 	AActor();
 	void AddActorLocalOffset();
 	void Render();
+
+	FTransform GetTransform();
+	void SetTransform(FTransform Transform);
+
+	FVector2D GetLocation();
+	void SetLocation(FVector2D Location);
+
+	FVector2D GetScale();
+	void SetScale(FVector2D Scale);
+
 	~AActor();
 
+protected:
 	FTransform Transform;
 	int Mesh;
 };

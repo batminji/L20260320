@@ -8,7 +8,7 @@ AMonster::AMonster()
 	Transform.Scale.X = 0;
 	Transform.Scale.Y = 0;
 
-	Gold = 0;
+	Gold = 10;
 
 	Mesh = 0;
 }

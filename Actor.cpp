@@ -19,6 +19,36 @@ void AActor::Render()
 {
 }
 
+FTransform AActor::GetTransform()
+{
+	return Transform;
+}
+
+void AActor::SetTransform(FTransform Transform)
+{
+	this->Transform = Transform;
+}
+
+FVector2D AActor::GetLocation()
+{
+	return Transform.Location;
+}
+
+void AActor::SetLocation(FVector2D Location)
+{
+	Transform.Location = Location;
+}
+
+FVector2D AActor::GetScale()
+{
+	return Transform.Scale;
+}
+
+void AActor::SetScale(FVector2D Scale)
+{
+	Transform.Scale = Scale;
+}
+
 AActor::~AActor()
 {
 }

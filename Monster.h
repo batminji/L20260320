@@ -10,6 +10,7 @@ public:
 	void DropGold();
 	~AMonster();
 
+protected:
 	int Gold;
 };
 

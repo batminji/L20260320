@@ -6,15 +6,16 @@ class UEngine
 {
 public:
 	UEngine();
+
 	void Initialize();
 	void Run();
 	void Terminate();
 
+	~UEngine();
+
 	void Input();
 	void Tick();
 	void Render();
-
-	~UEngine();
 
 	UWorld* World;
 

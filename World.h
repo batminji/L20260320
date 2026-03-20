@@ -13,6 +13,7 @@ public:
 	void Render();
 	~UWorld();
 
+private:
 	int WildBoarCounts;
 	int GoblinCounts;
 	int SlimeCounts;
