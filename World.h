@@ -7,18 +7,19 @@ class UWorld
 public:
 	UWorld();
 	UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int InSlimeCounts);
-	void Process();
-	void Render();
+
+	virtual void Tick();
+	virtual void Render();
+
 	~UWorld();
 
 private:
+	std::vector<AActor*> Actors;
+
 	int PlayerCounts;
 	int WildBoarCounts;
 	int GoblinCounts;
 	int SlimeCounts;
 	int ActorCounts;
-
-	// AActor** Actors;
-	std::vector<AActor*> Actors;
 };
 

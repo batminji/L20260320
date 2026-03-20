@@ -15,10 +15,9 @@ AGoblin::AGoblin()
 	Mesh = 0;
 }
 
-void AGoblin::Move()
+void AGoblin::Tick()
 {
-	std::cout << "Goblin Move" << std::endl;
-	AddActorLocalOffset();
+	std::cout << "AGoblin::Tick" << std::endl;
 }
 
 AGoblin::~AGoblin()

@@ -15,7 +15,7 @@ AMonster::AMonster()
 	Mesh = 0;
 }
 
-void AMonster::Move()
+void AMonster::Tick()
 {
 }
 

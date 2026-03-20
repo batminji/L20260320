@@ -16,9 +16,10 @@ class AActor
 {
 public:
 	AActor();
-	void AddActorLocalOffset();
-	virtual void Move();
-	void Render();
+
+	virtual void Begin();
+	virtual void Tick();
+	virtual void Render();
 
 	const FTransform GetTransform();
 	void SetTransform(FTransform Transform);

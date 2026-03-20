@@ -50,11 +50,11 @@ UWorld::UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int
 	}
 }
 
-void UWorld::Process()
+void UWorld::Tick()
 {
 	for (AActor* & ActorRef : Actors)
 	{
-		ActorRef->Move();
+		ActorRef->Tick();
 	}
 }
 

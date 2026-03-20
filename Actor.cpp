@@ -13,11 +13,11 @@ AActor::AActor()
 	Mesh = 0;
 }
 
-void AActor::AddActorLocalOffset()
+void AActor::Begin()
 {
 }
 
-void AActor::Move()
+void AActor::Tick()
 {
 
 }

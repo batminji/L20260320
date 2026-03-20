@@ -37,7 +37,7 @@ void UEngine::Input()
 
 void UEngine::Tick()
 {
-	World->Process();
+	World->Tick();
 }
 
 void UEngine::Render()
