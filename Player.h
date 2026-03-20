@@ -4,7 +4,7 @@ class APlayer : public AActor
 {
 public:
 	APlayer();
-	virtual void Move();
+	virtual void Move() override;
 	void Attack();
 	void Damaged();
 	void CollectGold(int Gold);

@@ -4,7 +4,7 @@ class AMonster : public AActor
 {
 public:
 	AMonster();
-	virtual void Move();
+	virtual void Move() override;
 	void Attack();
 	void Damaged();
 	void DropGold();

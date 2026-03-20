@@ -4,6 +4,6 @@ class AGoblin : public AMonster
 {
 public:
 	AGoblin();
-	virtual void Move();
+	virtual void Move() override;
 	~AGoblin();
 };

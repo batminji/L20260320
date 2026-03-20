@@ -8,6 +8,7 @@
 #include "Goblin.h"
 #include "Slime.h"
 
+#define SAFE_DELETES(Object) if(Object) {delete[] Object;}
 
 UWorld::UWorld()
 	: PlayerCounts(1), WildBoarCounts(rand() % 10 + 1), GoblinCounts(rand() % 10 + 1), SlimeCounts(rand() % 10 + 1), ActorCounts(WildBoarCounts + GoblinCounts + SlimeCounts)
