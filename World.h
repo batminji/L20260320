@@ -6,7 +6,7 @@ class UWorld
 {
 public:
 	UWorld();
-	UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int InSlimeCounts);
+	UWorld(const int InPlayerCounts, const int InWildBoarCounts, const int InGoblinCounts, const int InSlimeCounts);
 
 	virtual void Tick();
 	virtual void Render();

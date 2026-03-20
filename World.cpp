@@ -29,7 +29,7 @@ UWorld::UWorld()
 	}
 }
 
-UWorld::UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int InSlimeCounts)
+UWorld::UWorld(const int InPlayerCounts, const int InWildBoarCounts, const int InGoblinCounts, const int InSlimeCounts)
 	: PlayerCounts(InPlayerCounts), WildBoarCounts(InWildBoarCounts), GoblinCounts(InGoblinCounts), SlimeCounts(InSlimeCounts), ActorCounts(PlayerCounts + WildBoarCounts + GoblinCounts + SlimeCounts)
 {
 	for (int i = 0; i < PlayerCounts; ++i)
@@ -52,7 +52,7 @@ UWorld::UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int
 
 void UWorld::Tick()
 {
-	for (AActor* & ActorRef : Actors)
+	for (AActor* & const ActorRef : Actors)
 	{
 		ActorRef->Tick();
 	}
@@ -60,7 +60,7 @@ void UWorld::Tick()
 
 void UWorld::Render()
 {
-	for (AActor* & ActorRef : Actors)
+	for (AActor* & const ActorRef : Actors)
 	{
 		ActorRef->Render();
 	}
@@ -68,7 +68,7 @@ void UWorld::Render()
 
 UWorld::~UWorld()
 {
-	for (AActor*& ActorRef : Actors)
+	for (AActor*& const ActorRef : Actors)
 	{
 		delete ActorRef;
 		ActorRef = nullptr;
