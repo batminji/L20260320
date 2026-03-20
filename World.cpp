@@ -12,18 +12,44 @@ UWorld::UWorld()
 	SlimeCounts = rand() % 10 + 1;
 
 	Player = new APlayer();
+
 	WildBoars = new AWildBoar*[WildBoarCounts]();
+	for (int i = 0; i < WildBoarCounts; ++i)
+	{
+		WildBoars[i] = new AWildBoar();
+	}
 	Goblins = new AGoblin*[GoblinCounts]();
+	for (int i = 0; i < GoblinCounts; ++i)
+	{
+		Goblins[i] = new AGoblin();
+	}
 	Slimes = new ASlime*[SlimeCounts]();
+	for (int i = 0; i < SlimeCounts; ++i)
+	{
+		Slimes[i] = new ASlime();
+	}
 }
 
 UWorld::UWorld(int WildBoarCounts, int GoblinCounts, int SlimeCounts)
 	: WildBoarCounts(WildBoarCounts), GoblinCounts(GoblinCounts), SlimeCounts(SlimeCounts)
 {
 	Player = new APlayer();
-	WildBoars = new AWildBoar*[WildBoarCounts]();
-	Goblins = new AGoblin*[GoblinCounts]();
-	Slimes = new ASlime*[SlimeCounts]();
+
+	WildBoars = new AWildBoar * [WildBoarCounts]();
+	for (int i = 0; i < WildBoarCounts; ++i)
+	{
+		WildBoars[i] = new AWildBoar();
+	}
+	Goblins = new AGoblin * [GoblinCounts]();
+	for (int i = 0; i < GoblinCounts; ++i)
+	{
+		Goblins[i] = new AGoblin();
+	}
+	Slimes = new ASlime * [SlimeCounts]();
+	for (int i = 0; i < SlimeCounts; ++i)
+	{
+		Slimes[i] = new ASlime();
+	}
 }
 
 void UWorld::Process()
