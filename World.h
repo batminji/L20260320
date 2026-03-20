@@ -1,6 +1,5 @@
 #pragma once
-#include "Player.h"
-
+#include <vector>
 class AActor;
 
 class UWorld
@@ -19,6 +18,7 @@ private:
 	int SlimeCounts;
 	int ActorCounts;
 
-	AActor** Actors;
+	// AActor** Actors;
+	std::vector<AActor*> Actors;
 };
 

@@ -8,82 +8,70 @@
 #include "Goblin.h"
 #include "Slime.h"
 
-#define SAFE_DELETES(Object) if(Object) {delete[] Object;}
-
 UWorld::UWorld()
 	: PlayerCounts(1), WildBoarCounts(rand() % 10 + 1), GoblinCounts(rand() % 10 + 1), SlimeCounts(rand() % 10 + 1), ActorCounts(PlayerCounts + WildBoarCounts + GoblinCounts + SlimeCounts)
 {
-	Actors = new AActor* [ActorCounts];
 	for (int i = 0; i < PlayerCounts; ++i)
 	{
-		Actors[i] = new APlayer();
+		Actors.emplace_back(new APlayer());
 	}
 	for (int i = PlayerCounts; i < PlayerCounts + WildBoarCounts; ++i)
 	{
-		Actors[i] = new AWildBoar();
+		Actors.emplace_back(new AWildBoar());
 	}
 	for (int i = PlayerCounts + WildBoarCounts; i < PlayerCounts + WildBoarCounts + GoblinCounts; ++i)
 	{
-		Actors[i] = new AGoblin();
+		Actors.emplace_back(new AGoblin());
 	}
 	for (int i = PlayerCounts + WildBoarCounts + GoblinCounts; i < PlayerCounts + WildBoarCounts + GoblinCounts + SlimeCounts; ++i)
 	{
-		Actors[i] = new ASlime();
+		Actors.emplace_back(new ASlime());
 	}
 }
 
 UWorld::UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int InSlimeCounts)
 	: PlayerCounts(InPlayerCounts), WildBoarCounts(InWildBoarCounts), GoblinCounts(InGoblinCounts), SlimeCounts(InSlimeCounts), ActorCounts(PlayerCounts + WildBoarCounts + GoblinCounts + SlimeCounts)
 {
-	if (ActorCounts > 0)
-	{
-		Actors = new AActor* [ActorCounts];
-	}
-
 	for (int i = 0; i < PlayerCounts; ++i)
 	{
-		Actors[i] = new APlayer();
+		Actors.emplace_back(new APlayer());
 	}
 	for (int i = PlayerCounts; i < PlayerCounts + WildBoarCounts; ++i)
 	{
-		Actors[i] = new AWildBoar();
+		Actors.emplace_back(new AWildBoar());
 	}
 	for (int i = PlayerCounts + WildBoarCounts; i < PlayerCounts + WildBoarCounts + GoblinCounts; ++i)
 	{
-		Actors[i] = new AGoblin();
+		Actors.emplace_back(new AGoblin());
 	}
 	for (int i = PlayerCounts + WildBoarCounts + GoblinCounts; i < PlayerCounts + WildBoarCounts + GoblinCounts + SlimeCounts; ++i)
 	{
-		Actors[i] = new ASlime();
+		Actors.emplace_back(new ASlime());
 	}
 }
 
 void UWorld::Process()
 {
-	for (int i = 0; i < ActorCounts; ++i)
+	for (AActor* & ActorRef : Actors)
 	{
-		Actors[i]->Move();
+		ActorRef->Move();
 	}
 }
 
 void UWorld::Render()
 {
-	for (int i = 0; i < ActorCounts; ++i)
+	for (AActor* & ActorRef : Actors)
 	{
-		Actors[i]->Render();
+		ActorRef->Render();
 	}
 }
 
 UWorld::~UWorld()
 {
-	if (Actors)
+	for (AActor*& ActorRef : Actors)
 	{
-		for (int i = 0; i < ActorCounts; ++i)
-		{
-			delete Actors[i];
-			Actors[i] = nullptr;
-		}
-		delete[] Actors;
-		Actors = nullptr;
+		delete ActorRef;
+		ActorRef = nullptr;
 	}
+	Actors.clear();
 }
