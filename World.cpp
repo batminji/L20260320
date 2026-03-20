@@ -11,7 +11,7 @@
 #define SAFE_DELETES(Object) if(Object) {delete[] Object;}
 
 UWorld::UWorld()
-	: PlayerCounts(1), WildBoarCounts(rand() % 10 + 1), GoblinCounts(rand() % 10 + 1), SlimeCounts(rand() % 10 + 1), ActorCounts(WildBoarCounts + GoblinCounts + SlimeCounts)
+	: PlayerCounts(1), WildBoarCounts(rand() % 10 + 1), GoblinCounts(rand() % 10 + 1), SlimeCounts(rand() % 10 + 1), ActorCounts(PlayerCounts + WildBoarCounts + GoblinCounts + SlimeCounts)
 {
 	Actors = new AActor* [ActorCounts];
 	for (int i = 0; i < PlayerCounts; ++i)
@@ -33,7 +33,7 @@ UWorld::UWorld()
 }
 
 UWorld::UWorld(int InPlayerCounts, int InWildBoarCounts, int InGoblinCounts, int InSlimeCounts)
-	: PlayerCounts(InPlayerCounts), WildBoarCounts(InWildBoarCounts), GoblinCounts(InGoblinCounts), SlimeCounts(InSlimeCounts), ActorCounts(WildBoarCounts + GoblinCounts + SlimeCounts)
+	: PlayerCounts(InPlayerCounts), WildBoarCounts(InWildBoarCounts), GoblinCounts(InGoblinCounts), SlimeCounts(InSlimeCounts), ActorCounts(PlayerCounts + WildBoarCounts + GoblinCounts + SlimeCounts)
 {
 	if (ActorCounts > 0)
 	{
