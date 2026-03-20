@@ -13,10 +13,10 @@ public:
 	void Render();
 	~UWorld();
 
-	int MonsterCounts;
 	int WildBoarCounts;
 	int GoblinCounts;
 	int SlimeCounts;
+	int MonsterCounts;
 
 	APlayer* Player;
 	AMonster** Monsters;

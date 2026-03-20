@@ -7,12 +7,8 @@
 #include <stdlib.h>
 
 UWorld::UWorld()
+	: WildBoarCounts(rand() % 10 + 1), GoblinCounts(rand() % 10 + 1), SlimeCounts(rand() % 10 + 1), MonsterCounts(WildBoarCounts + GoblinCounts + SlimeCounts)
 {
-	WildBoarCounts = rand() % 10 + 1;
-	GoblinCounts = rand() % 10 + 1;
-	SlimeCounts = rand() % 10 + 1;
-	MonsterCounts = WildBoarCounts + GoblinCounts + SlimeCounts;
-
 	Player = new APlayer();
 
 	Monsters = new AMonster * [MonsterCounts];
@@ -31,11 +27,10 @@ UWorld::UWorld()
 }
 
 UWorld::UWorld(int WildBoarCounts, int GoblinCounts, int SlimeCounts)
-	: WildBoarCounts(WildBoarCounts), GoblinCounts(GoblinCounts), SlimeCounts(SlimeCounts)
+	: WildBoarCounts(WildBoarCounts), GoblinCounts(GoblinCounts), SlimeCounts(SlimeCounts), MonsterCounts(WildBoarCounts + GoblinCounts + SlimeCounts)
 {
 	Player = new APlayer();
 
-	MonsterCounts = WildBoarCounts + GoblinCounts + SlimeCounts;
 	Monsters = new AMonster * [MonsterCounts];
 	for (int i = 0; i < WildBoarCounts; ++i)
 	{
