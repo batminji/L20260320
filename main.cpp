@@ -1,14 +1,14 @@
-#include "World.h"
+#include "Engine.h"
 
 int main()
 {
-	UWorld* World = new UWorld();
+	UEngine* Engine = new UEngine();
 
-	World->Process();
-	World->Render();
+	Engine->Process();
+	Engine->Render();
 
-	delete World;
-	World = nullptr;
+	delete Engine;
+	Engine = nullptr;
 
 	return 0;
 }
