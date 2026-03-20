@@ -68,7 +68,7 @@ void UWorld::Render()
 
 UWorld::~UWorld()
 {
-	for (AActor*& const ActorRef : Actors)
+	for (AActor*& ActorRef : Actors)
 	{
 		delete ActorRef;
 		ActorRef = nullptr;
