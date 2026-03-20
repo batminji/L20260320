@@ -1,10 +1,11 @@
+#include "stdafx.h"
+
 #include "World.h"
 #include "Monster.h"
 #include "WildBoar.h"
 #include "Goblin.h"
 #include "Slime.h"
 
-#include <stdlib.h>
 
 UWorld::UWorld()
 	: WildBoarCounts(rand() % 10 + 1), GoblinCounts(rand() % 10 + 1), SlimeCounts(rand() % 10 + 1), MonsterCounts(WildBoarCounts + GoblinCounts + SlimeCounts)

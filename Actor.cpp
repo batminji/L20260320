@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "Actor.h"
 
 AActor::AActor()
@@ -19,7 +21,7 @@ void AActor::Render()
 {
 }
 
-FTransform AActor::GetTransform()
+const FTransform AActor::GetTransform()
 {
 	return Transform;
 }
@@ -29,7 +31,7 @@ void AActor::SetTransform(FTransform Transform)
 	this->Transform = Transform;
 }
 
-FVector2D AActor::GetLocation()
+const FVector2D AActor::GetLocation()
 {
 	return Transform.Location;
 }
@@ -39,7 +41,7 @@ void AActor::SetLocation(FVector2D Location)
 	Transform.Location = Location;
 }
 
-FVector2D AActor::GetScale()
+const FVector2D AActor::GetScale()
 {
 	return Transform.Scale;
 }

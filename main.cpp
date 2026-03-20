@@ -1,5 +1,6 @@
+#include "stdafx.h"
+
 #include "Engine.h"
-#include <iostream>
 
 int main()
 {

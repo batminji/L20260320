@@ -1,5 +1,6 @@
+#include "stdafx.h"
+
 #include "Goblin.h"
-#include <iostream>
 
 AGoblin::AGoblin()
 {

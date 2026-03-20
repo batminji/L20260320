@@ -1,5 +1,6 @@
+#include "stdafx.h"
+
 #include "Slime.h"
-#include <iostream>
 
 ASlime::ASlime()
 {

@@ -1,5 +1,6 @@
+#include "stdafx.h"
+
 #include "WildBoar.h"
-#include <iostream>
 
 AWildBoar::AWildBoar()
 {

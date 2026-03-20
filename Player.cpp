@@ -1,5 +1,6 @@
+#include "stdafx.h"
+
 #include "Player.h"
-#include <iostream>
 
 APlayer::APlayer()
 {
